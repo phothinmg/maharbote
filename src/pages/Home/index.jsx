@@ -64,7 +64,7 @@ const mbaht = [
       }
     return (
         <>
-        <a href=""><img src="/github.svg" style={{marginTop:20,marginLeft:10}}/></a>
+        <a href="https://github.com/phothinmg/maharbote" target="_blank"><img src="/github.svg" style={{marginTop:20,marginLeft:10}}/></a>
           <div className="mb">
             <h4> မဟာဘုတ်</h4>
             <hr />
