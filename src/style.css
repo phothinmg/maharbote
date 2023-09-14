@@ -1,0 +1,83 @@
+@import url(https://cdn.jsdelivr.net/gh/phothinmg/burma@main/burma-font/burmafont.css);
+:root,
+::backdrop {
+  --bg: #3f2602;
+  --bg2:#8b0d0d;
+  --nav-text:#673ab8;
+  --nav-hover:#ffb300;
+  --text:#f1ede9;}
+body {
+  color: var(--text);
+  background-color: var(--bg);
+  display: grid;
+  grid-template-columns: 1fr min(45rem, 90%) 1fr;
+  margin: 0;
+  font-family: burma;}
+body > * {grid-column: 2;}
+p{
+  font-weight: bold;
+  font-size: small;
+  margin-left: 10px;
+}
+button{
+	font-size: 10px;
+	padding: 7px;
+	width: 70px;
+	font-weight: bold;
+	background-color: black;
+	color: #efefef;
+	border-radius: 7px;
+	border: 3px solid black;
+}
+button:hover{
+	background-color: #250f4d;
+}
+a{
+	color: antiquewhite;
+	font-size: small;
+}
+li{
+	font-size: small;
+}
+
+	.mb {
+		padding: 5px 20px 5px 20px;
+		border: 10px solid black;
+		background-color: var(--bg2);
+		border-radius: 9px;
+		margin-top: 10px;
+	  }
+	  .mb > p{
+		font-weight: normal;
+		font-size: 16px;
+	  } 
+	  
+	  .mb > span{
+		font-size: small;
+		font-weight: bold;
+	  }
+	  .mb > p{
+		font-size: small;
+		font-weight: bold;
+	  }
+	  .group{
+		display: flex;
+		flex-direction: row;
+		padding: 20px;
+		font-size: small;
+		font-weight: bold;
+		gap: 5px;
+	  }
+	  .group > select{
+		width: 100px;
+		height: 25px;
+	  }
+	  .group > input{
+		width: 100px;
+		height: 20px;
+	  }
+	@media screen and (max-width: 400px){
+		.group{
+			flex-direction: column;
+		}
+	}
