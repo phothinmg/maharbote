@@ -106,9 +106,6 @@ const mbaht = [
         <ol>
             <li><a href="https://coolemerald.blogspot.com/2013/06/algorithm-program-and-calculation-of.html?fbclid=IwAR0RXq5AsMxtoKKmLGxcLJgmOi9Cu3OMZOFc9BLpR-zGqXWEMxsV0pRSBbk" target="_blank"> Algorithm, Program and Calculation of Myanmar Calendar</a></li>
             <li><a href="https://cool-emerald.blogspot.com/2013/12/myanmar-astrological-calendar-days.html" target="_blank">Myanmar Astrological Calendar Days</a></li>
-            <li><a  href="https://github.com/yan9a/mmcal" target="_blank">Myanmar calander on github</a></li>
-            <li><a  href="http://pmyers.pcug.org.au/" target="_blank">Paul Robert Myers</a></li>
-            <li><a  href="https://date-fns.org/" target="_blank">date-fns</a></li>
         </ol>
         </>
     )
