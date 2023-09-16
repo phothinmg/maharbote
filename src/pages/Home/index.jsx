@@ -84,7 +84,7 @@ const mbaht = [
     es = dt.getSeconds();
     var jd = ceDateTime.w2j(ey,em,ed,eh,en,es);
     myaDate = `${ssy} - ${mmy} - ${mmm} ${mmd}  ${yyz}  ${dgh}`;
-    myaDate2 = `${astro}  ${hod}  ${hod2}`
+    // myaDate2 = `${astro}  ${hod}  ${hod2}`
     
 
     // --------
@@ -100,11 +100,11 @@ const mbaht = [
       if (my && mwd){mbah = mbaht[mb];}else{mbah = 'အချက်အလက်များဖြည့်သွင်းပေးပါ';}
      return (
         <>
-        <a href="https://github.com/phothinmg/maharbote" target="_blank"><img src="/github.svg" style={{marginTop:20,marginLeft:10}}/></a>
+            <a href="https://github.com/phothinmg/maharbote" target="_blank"><img src="/github.svg" style={{marginTop:20,marginLeft:10}}/></a>
           <div className="mb">
             <div class={'mbtop'}>
                <h3> မဟာဘုတ် </h3><br />
-               {myaDate} <br />{myaDate}
+               {myaDate} <br />
             </div>
             <hr />
             <details>
@@ -149,13 +149,15 @@ const mbaht = [
                 <p>{mbah}</p>
             </details>
             <hr />
-                
-		</div>
-        <p>Resources</p>
-        <ol>
-            <li><a href="https://coolemerald.blogspot.com/2013/06/algorithm-program-and-calculation-of.html?fbclid=IwAR0RXq5AsMxtoKKmLGxcLJgmOi9Cu3OMZOFc9BLpR-zGqXWEMxsV0pRSBbk" target="_blank"> Algorithm, Program and Calculation of Myanmar Calendar</a></li>
-            <li><a href="https://cool-emerald.blogspot.com/2013/12/myanmar-astrological-calendar-days.html" target="_blank">Myanmar Astrological Calendar Days</a></li>
-        </ol>
+        </div>
+        <br />
+        <details>
+            <summary>Resources</summary>
+            <ol>
+              <li><a href="https://coolemerald.blogspot.com/2013/06/algorithm-program-and-calculation-of.html?fbclid=IwAR0RXq5AsMxtoKKmLGxcLJgmOi9Cu3OMZOFc9BLpR-zGqXWEMxsV0pRSBbk" target="_blank"> Algorithm, Program and Calculation of Myanmar Calendar</a></li>
+              <li><a href="https://cool-emerald.blogspot.com/2013/12/myanmar-astrological-calendar-days.html" target="_blank">Myanmar Astrological Calendar Days</a></li>
+            </ol>
+        </details>
         </>
     )
 
