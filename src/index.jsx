@@ -3,7 +3,7 @@ import { LocationProvider, Router, Route } from 'preact-iso';
 import  Home  from './pages/Home/index.jsx';
 import { NotFound } from './pages/_404.jsx';
 import Footer from './components/Footer.jsx';
-
+import './pages/sitemap.xml'
 export function App() {
 	return (
 		<LocationProvider>
