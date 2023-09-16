@@ -114,6 +114,21 @@ li{
 .c-card>p{
 	font-size: x-small;
 }
-
+.footer{
+	display: flex;
+	flex-direction: row;
+	padding: 20px;
+	
+}
+.footer>p{
+	font-size: x-small;
+	font-weight: lighter;
+	font-family: monospace;
+	font-style: italic;
+	margin-right: 10px;
+}
+.footer>img{
+	margin-right: 20px;
+}
 
 

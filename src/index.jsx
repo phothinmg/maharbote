@@ -3,6 +3,7 @@ import { LocationProvider, Router, Route } from 'preact-iso';
 import  Home  from './pages/Home/index.jsx';
 import { NotFound } from './pages/_404.jsx';
 import Mmdate from './pages/Mmdate.jsx';
+import Footer from './components/Footer.jsx';
 
 export function App() {
 	return (
@@ -14,6 +15,8 @@ export function App() {
 					<Route default component={NotFound} />
 				</Router>
 			</main>
+			<br /><br /><br /><br />
+			<Footer/>
 		</LocationProvider>
 	);
 }
