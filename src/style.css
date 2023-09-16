@@ -92,11 +92,7 @@ li{
 	font-size: small;
 	font-weight: bold;
 }
-@media screen and (max-width: 400px){
-	.group{
-		flex-direction: column;
-	}
-}
+
 /*  */
 .c-container{
 	margin-top: 30px;
@@ -120,15 +116,22 @@ li{
 	padding: 20px;
 	
 }
-.footer>p{
-	font-size: x-small;
+.footer>p,a{
+	font-size: small;
 	font-weight: lighter;
 	font-family: monospace;
 	font-style: italic;
 	margin-right: 10px;
 }
-.footer>img{
-	margin-right: 20px;
+/*  */
+@media screen and (max-width: 400px){
+	.group{
+		flex-direction: column;
+	}
+	.footer{
+		flex-direction: column;
+	}
+
 }
 
 
