@@ -149,7 +149,7 @@ const mbaht = [
             </details>
             <hr />
         </div>
-        <a href="https://github.com/phothinmg/maharbote" target="_blank"><img src="/github.svg" style={{marginTop:20,marginLeft:10}}/></a>
+        <a href="https://github.com/phothinmg/maharbote" target="_blank"><img src="/github.svg" style={{marginTop:20,marginLeft:10,width:24,height:24}}/></a>
         <br /><br />
         <details>
             <summary>Resources</summary>
