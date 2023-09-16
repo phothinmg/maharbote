@@ -1,6 +1,8 @@
 // @ts-nocheck
 import { useState } from "preact/hooks";
-import {g2j ,j2m,num2ms} from 'https://esm.sh/gh/phothinmg/burma/date-time-js/g2j2m.js';
+import '../../style.css';
+import {g2j ,j2m,num2ms} from '../../../lib/g2j2m';
+import { ceDateTime,ceMmDateTime,ceMmTranslate,ceMmChronicle } from "../../../lib/ceMmDateTime";
 const day = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
 const month =[{value: '1',text:'Jan'},{value: '2',text:'Feb'},{value: '3',text:'Mar'},{value: '4',text:'Apr'},{value: '5',text:'May'},{value: '6',text:'Jun'},{value: '7',text:'July'},{value: '8',text:'Aug'},{value: '9',text:'Sep'},{value: '10',text:'Oct'},{value: '11',text:'Nov'},{value: '12',text:'Dec'}];
 const mbaht = [
@@ -32,23 +34,61 @@ const mbaht = [
     const ff = j2m(dd).my;
     let my ; 
 	if(ff==1114){my = null}else{my = ff}
-    // const [my, setInputValue] = useState('');
-    // const handleInputChange = (event) => {
-    //     setInputValue(event.target.value);
-    //   };
     const [mwd, setSelectValue] = useState('');
     const handleSelectChange = (event) => {
         setSelectValue(event.target.value);
     };
+    const arryNatk = ['Ogre', 'Elf', 'Human'];
+    const natk = ceMmDateTime.cal_nakhat(my);
+    const natkes = arryNatk[natk];
+    let natkstr;
+    if(my && mwd){natkstr = new ceMmTranslate().T(natkes,1)}else{natkstr = ''}
     const r = (my - parseInt(mwd)) % 7;
     const mwda = ["စနေ", "တနင်္ဂနွေ", "တနင်္လာ", "အင်္ဂါ", "ဗုဒ္ဓဟူး", "ကြာသပတေး", "သောကြာ"];
     const pa = ["ဘင်္ဂ", "အထွန်း", "ရာဇ", "အဓိပတိ", "မရဏ", "သိုက်", "ပုတိ"];
     let result = '';
+    let result2 = '';
+    let result3 = '';
     if (my && mwd){
-        result =  `မြန်မာ သက္ကရာဇ် ${num2ms(my)} ခုနှစ် ${mwda[mwd]}   နေ့မွေးဖွားသူသည်  အကြွင်း ${num2ms(my % 7)} ${pa[r]} ဖွားဖြစ်သည်။`;
+        result =  `မြန်မာ သက္ကရာဇ် ${num2ms(my)} ခုနှစ် ${mwda[mwd]}   နေ့မွေးဖွားသူသည်`;
+        result2 =  `ဖွားဇာတာ : အကြွင်း ${num2ms(my % 7)} ${pa[r]} ဖွားဖြစ်သည် `;
+        result3 = `နတ်က္ခတ် : ${natkstr}`;
     } else {
         result = 'မဟာဘုတ် ဖွားဇာတာသိရှိနိုင်ရန်အတွက် မွေးဖွားသည့် ခရစ် သက္ကရာဇ် မွေးနေ့ နှင့် မွေးနေ့နံ ကိုထည့်သွင်းရွေးချယ်ပါ။ရွေးချယ်ပီးသည်နှင့်အောက်တွင် အဟောကိုဖတ်ရှုနိူင်ပါသည်။';
+        result2 = '';
+        result3 = '';
     }
+    // -----------
+    var lang,x,mdt,ssy,mmy,mmm,mmd,yyz,astro,dgh,hod,hod2;
+    lang = 1;
+    x = new ceMmTranslate();
+    mdt = new ceMmDateTime();
+    ssy = 'သာသနာနှစ်' + ' ' + x.T(mdt.ToMString('&YYYY'),lang);
+    mmy = 'မြန်မာသက္ကရာဇ်'+ ' ' + x.T(mdt.ToMString('&yyyy'),lang);
+    mmm = x.T(mdt.ToMString('&M'),lang);
+    mmd = x.T(mdt.ToMString('&P &f'),lang) + ' ' + 'ရက်';
+    if(ceMmDateTime.cal_yatyaza(mdt.mm,mdt.w) == 1) yyz = 'ရက်ရာဇာ';
+    if(ceMmDateTime.cal_pyathada(mdt.mm,mdt.w) == 1) yyz = 'ပြသဒါး';
+    if(ceMmDateTime.cal_pyathada(mdt.mm,mdt.w) == 2) yyz = 'မွန်းလွဲပြသဒါး';
+    astro = x.T(`${mdt.astro}`,lang);
+    dgh = 'နဂါးခေါင်း ' + ' ' + x.T(mdt.nagahle,lang) + ' ' + 'လှည့်';
+    hod = x.T(`${mdt.holidays}`,lang);
+    hod2 = x.T(`${mdt.holidays2}`,lang);
+    var dt,ey,em,ed,eh,en,es,myaDate;
+    dt = new Date();
+    ey = dt.getFullYear();
+    em = dt.getMonth();
+    ed = dt.getDate();
+    eh = dt.getHours();
+    en = dt.getMinutes();
+    es = dt.getSeconds();
+    var jd = ceDateTime.w2j(ey,em,ed,eh,en,es);
+    myaDate = `${ssy} - ${mmy} - ${mmm} ${mmd}  ${yyz}  ${dgh}`;
+    myaDate2 = `${astro}  ${hod}  ${hod2}`
+    
+
+    // --------
+    
     const handleReset = () => {
         setInputValueY('');
         setSelectValue('');
@@ -57,37 +97,41 @@ const mbaht = [
       };
       const mb =my % 7;
       let mbah = '';
-      if (my && mwd){
-        mbah = mbaht[r];
-      }else{
-        mbah = 'အဟောအားဤနေရာတွင်ကြည့်ပါ';
-      }
-    return (
+      if (my && mwd){mbah = mbaht[mb];}else{mbah = 'အချက်အလက်များဖြည့်သွင်းပေးပါ';}
+     return (
         <>
         <a href="https://github.com/phothinmg/maharbote" target="_blank"><img src="/github.svg" style={{marginTop:20,marginLeft:10}}/></a>
           <div className="mb">
-            <h4> မဟာဘုတ်</h4>
+            <div class={'mbtop'}>
+               <h3> မဟာဘုတ် </h3><br />
+               {myaDate} <br />{myaDate}
+            </div>
             <hr />
-            <p>ယခု project ကိုကျနော် javascript လေ့လာရင်းလုပ်ခဲ့တာဖြစ်ပါသည်။တွက်ချက်ပုံနှင့်ဟောချက်များအမှားအယွင်းတစ်စုံတစ်ရာ ရှိပါကနားလည်ပေးပါ။</p>
+            <details>
+                    <summary>About</summary>
+                    <p>ယခု project ကိုကျနော် javascript လေ့လာရင်းလုပ်ခဲ့တာဖြစ်ပါသည်။တွက်ချက်ပုံနှင့်ဟောချက်များအမှားအယွင်းတစ်စုံတစ်ရာ ရှိပါကနားလည်ပေးပါ။</p>
+            </details>
             <hr />
             <div class={'group'}>
                 <span>မွေးရက်</span>
                 <select value={d} onChange={handleSelectChangeD}>
+                    <option value=""><p class={'pp'}> ရွေးချယ်ပါ </p></option>
                 {day.map((item) =>(
                     <option key={item} value={item}>{item}</option>
                 ))}
                 </select>
                 <span>မွေးလ</span>
                 <select value={m} onChange={handleSelectChangeM}>
+                <option value=""><p class={'pp'}> ရွေးချယ်ပါ </p></option>
                     {month.map((item) =>(
                         <option key={item.text} value={item.value}>{item.text}</option>
                     ))}
                 </select>
                 <span>ခရစ်နှစ်</span>
-                <input type="number" value={y} onChange={handleInputChangeY}/>
+                <input type="number" value={y} onChange={handleInputChangeY} placeholder={'englishNumber'}/>
                 <span>မွေးနံ</span>
                 <select  value={mwd} onChange={handleSelectChange}>
-                        <option value=''  > Select</option>
+                        <option value=''  ><p class={'pp'}> ရွေးချယ်ပါ </p></option>
                         <option value='0'  >စနေ</option>
                         <option value='1'  >တနင်္ဂနွေ </option>
                         <option value='2'  >တနင်္လာ</option>
@@ -97,10 +141,15 @@ const mbaht = [
                         <option value='6'  >သောကြာ</option>
                 </select> 
             </div>
-                <p> {result}</p><br />
-                <button type="button" onClick={handleReset}>Reset</button>
+                <p> {result}</p><p>{result2}</p><p>{result3}</p>
+                <button type="button" onClick={handleReset} >Reset</button>
                 <br /><hr />
+            <details>
+                <summary>အချက်အလက်များဖြည့်သွင်းပြီးသည်နှင့်ဖွားဇာတာအဟောဖတ်ရန်မြားကိုနှိပ်ဖတ်ပါ</summary>
                 <p>{mbah}</p>
+            </details>
+            <hr />
+                
 		</div>
         <p>Resources</p>
         <ol>

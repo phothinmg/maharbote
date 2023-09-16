@@ -5,7 +5,9 @@
   --bg2:#8b0d0d;
   --nav-text:#673ab8;
   --nav-hover:#ffb300;
-  --text:#f1ede9;}
+  --text:#f1ede9;
+  --text-light:#e4e7ed;
+}
 body {
   color: var(--text);
   background-color: var(--bg);
@@ -19,6 +21,11 @@ p{
   font-size: small;
   margin-left: 10px;
 }
+summary{
+	font-weight: bold;
+	font-size: 14px;
+	margin-left: 10px;
+  }
 button{
 	font-size: 10px;
 	padding: 7px;
@@ -76,6 +83,15 @@ li{
 	width: 100px;
 	height: 20px;
  }
+ .pp{
+	font-size: xx-small;
+	font-weight: lighter;
+ }
+.mbtop{
+	text-align: center;
+	font-size: small;
+	font-weight: bold;
+}
 @media screen and (max-width: 400px){
 	.group{
 		flex-direction: column;
