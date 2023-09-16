@@ -127,7 +127,7 @@ const mbaht = [
                     ))}
                 </select>
                 <span>ခရစ်နှစ်</span>
-                <input type="number" value={y} onChange={handleInputChangeY} placeholder={'englishNumber'}/>
+                <input type="number" value={y} onChange={handleInputChangeY}  placeholder={'အင်းဂလိပ်ဂဏန်း'}/>
                 <span>မွေးနံ</span>
                 <select  value={mwd} onChange={handleSelectChange}>
                         <option value=''  ><p class={'pp'}> ရွေးချယ်ပါ </p></option>
