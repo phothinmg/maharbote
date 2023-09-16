@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mm">
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/star.svg" />
@@ -9,9 +9,240 @@
 		<meta name="robots" content="index, follow">
 		<meta name="color-scheme" content="light dark" />
 		<title>Maharbote</title>
+		<style>
+		.clock-c {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+       .clock-c::before {
+            content: '';
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 100000;
+        }
+        .indicators div {
+            position: absolute;
+            width: 1px;
+            height: 7px;
+            background:white;
+        }
+        .indicators div:nth-child(1) {
+            transform: rotate(30deg) translateY(-45px) translateX(-3px);
+        }
+
+        .indicators div:nth-child(2) {
+            transform: rotate(60deg) translateY(-45px) translateX(-5px);
+        }
+
+        .indicators div:nth-child(3) {
+            transform: rotate(120deg) translateY(-45px) translateX(-5px);
+        }
+
+        .indicators div:nth-child(4) {
+            transform: rotate(150deg) translateY(-45px) translateX(-2px);
+        }
+
+        .indicators div:nth-child(5) {
+            transform: rotate(210deg) translateY(-45px) translateX(4px);
+        }
+
+        .indicators div:nth-child(6) {
+            transform: rotate(240deg) translateY(-45px) translateX(6px);
+        }
+
+        .indicators div:nth-child(7) {
+            transform: rotate(300deg) translateY(-45px) translateX(5px);
+        }
+
+        .indicators div:nth-child(8) {
+            transform: rotate(330deg) translateY(-45px) translateX(2px);
+        }
+        .nums {
+            position: absolute;
+            font-size: 13px;
+            font-weight: bold;
+            color: grey;
+        }
+
+        #three {
+            position: absolute;
+            left: 36px;
+            top: -9px;
+        }
+
+        #six {
+            position: absolute;
+            top: 40px;
+            left: -1px;
+        }
+
+        #nine {
+            position: absolute;
+            right: 45px;
+            top: -9px;
+        }
+
+        #twelve {
+            position: absolute;
+            bottom: 36px;
+            left: -7px;
+        }
+
+        .clock-c .hour,
+        .clock-c .min,
+        .clock-c .sec {
+            position: absolute;
+            z-index: 10;
+        }
+
+        .hour,
+        .hr {
+            height: 50px;
+            width: 50px;
+        }
+
+        .min,
+        .mn {
+            height: 70px;
+            width: 70px;
+        }
+
+        .sec,
+        .sc {
+            height: 90px;
+            width: 90px;
+        }
+
+        .hr,
+        .mn,
+        .sc {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .hr::before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 27px;
+            background: #ff105e;
+            z-index: 10;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .mn::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 38px;
+            background:green;
+            z-index: 11;
+            border-radius: 6px 6px 0 0;
+        }
+
+        body.light .mn::before {
+            background: #091921;
+        }
+
+        .sc::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 45px;
+            background: #008eff;
+            z-index: 12;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .time {
+            display: none;
+            height: 20px;
+            position: absolute;
+            margin-top: 10px;
+            padding: 0 5px;
+            border: 1px solid #091921;
+            background: #091921;
+            border-radius: 5px;
+            color: #808080;
+            font-weight: bold;
+            box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.1);
+        }
+		.top{
+			text-align: center;
+			align-items: center;
+			justify-items: center;
+		}
+		</style>
 	</head>
 	<body>
-		<div id="app"></div>
+		<div class="top">
+			<div class="clock-c">
+				<div class="hour">
+					<div class="hr" id="hr"></div>
+				</div>
+				<div class="min">
+					<div class="mn" id="mn"></div>
+				</div>
+				<div class="sec">
+					<div class="sc" id="sc"></div>
+				</div>
+				<div class="indicators">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="nums">
+					<span id="three">3</span>
+					<span id="six">6</span>
+					<span id="nine">9</span>
+					<span id="twelve">12</span>
+				</div>
+				<div class="time"></div>
+			</div>
+			<script>
+				const hr = document.querySelector('#hr');
+				const mn = document.querySelector('#mn');
+				const sc = document.querySelector('#sc');
+				const time = document.querySelector('.time');
+				setInterval(() => {
+					let day = new Date();
+					let hour = day.getHours();
+					let min = day.getMinutes();
+					let sec = day.getSeconds();
+					let hrPosition = hour * 30 + min / 2      
+					let minPosition = min * 6;             
+					let secPosition = sec * 6;           
+					hr.style.transform = `rotateZ(${hrPosition}deg)`;
+					mn.style.transform = `rotateZ(${minPosition}deg)`;
+					sc.style.transform = `rotateZ(${secPosition}deg)`;
+					if (sec < 10) {
+						sec = '0' + sec;
+					}
+					if (min < 10) {
+						min = '0' + min;
+					}
+					if (hour < 10) {
+						hour = '0' + hour;
+					}
+		
+					time.textContent = hour + ' : ' + min + ' : ' + sec;
+		
+				}, 1000);
+			</script>
+		</div>
+		<div id="app" style="margin-top: 70px;"></div>
 		<script type="module" src="/src/index.jsx"></script>
 	</body>
 </html>

@@ -100,7 +100,6 @@ const mbaht = [
       if (my && mwd){mbah = mbaht[mb];}else{mbah = 'အချက်အလက်များဖြည့်သွင်းပေးပါ';}
      return (
         <>
-            <a href="https://github.com/phothinmg/maharbote" target="_blank"><img src="/github.svg" style={{marginTop:20,marginLeft:10}}/></a>
           <div className="mb">
             <div class={'mbtop'}>
                <h3> မဟာဘုတ် </h3><br />
@@ -150,7 +149,8 @@ const mbaht = [
             </details>
             <hr />
         </div>
-        <br />
+        <a href="https://github.com/phothinmg/maharbote" target="_blank"><img src="/github.svg" style={{marginTop:20,marginLeft:10}}/></a>
+        <br /><br />
         <details>
             <summary>Resources</summary>
             <ol>
