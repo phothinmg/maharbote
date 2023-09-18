@@ -1,7 +1,8 @@
 import { render } from 'preact';
 import { LocationProvider, Router, Route } from 'preact-iso';
-import  Home  from './pages/Home/index.jsx';
+import Home from './pages/Home/index.jsx';
 import { NotFound } from './pages/_404.jsx';
+import Maharbote from './pages/maharbote/index.jsx';
 import Footer from './components/Footer.jsx';
 export function App() {
 	return (
@@ -9,6 +10,7 @@ export function App() {
 			<main>
 				<Router>
 					<Route path="/" component={Home} />
+					<Route path="/maharbote" component={Maharbote} />
 					<Route default component={NotFound} />
 				</Router>
 			</main>

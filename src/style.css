@@ -4,7 +4,7 @@
   --bg: #3f2602;
   --bg2:#8b0d0d;
   --nav-text:#673ab8;
-  --nav-hover:#ffb300;
+  --nav-hover:#b98d25;
   --text:#f1ede9;
   --text-light:#e4e7ed;
 }
@@ -124,7 +124,7 @@ li{
 	margin-right: 10px;
 }
 /*  */
-@media screen and (max-width: 400px){
+@media screen and (max-width: 630px){
 	.group{
 		flex-direction: column;
 	}
