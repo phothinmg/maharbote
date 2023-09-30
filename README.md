@@ -1,6 +1,6 @@
 # Burmese Astrology Maharbote 
 
-Live Demo : http://localhost:5173/
+Live Demo : https://maharbote.vercel.app/
 
 
 ### Getting Started
