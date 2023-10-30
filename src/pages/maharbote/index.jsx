@@ -109,23 +109,23 @@ const mbaht = [
             <hr />
             <div class={'group'}>
                 <span>မွေးရက်</span>
-                <select value={d} onChange={handleSelectChangeD} aria-label="bd">
+                <select name="bDate" value={d} onChange={handleSelectChangeD} aria-label="bd">
                     <option value=""><p class={'pp'}> ရွေးချယ်ပါ </p></option>
                 {day.map((item) =>(
                     <option key={item} value={item}>{item}</option>
                 ))}
                 </select>
                 <span>မွေးလ</span>
-                <select value={m} onChange={handleSelectChangeM} aria-label="bm">
+                <select name="bMonth" value={m} onChange={handleSelectChangeM} aria-label="bm">
                 <option value=""><p class={'pp'}> ရွေးချယ်ပါ </p></option>
                     {month.map((item) =>(
                         <option key={item.text} value={item.value}>{item.text}</option>
                     ))}
                 </select>
                 <span>ခရစ်နှစ်</span>
-                <input type="number" value={y} onChange={handleInputChangeY}  placeholder={'အင်းဂလိပ်ဂဏန်း'}/>
+                <input name="bY" type="number" value={y} onChange={handleInputChangeY}  placeholder={'အင်းဂလိပ်ဂဏန်း'}/>
                 <span>မွေးနံ</span>
-                <select  value={mwd} onChange={handleSelectChange} aria-label="bwd" >
+                <select name="bWd"  value={mwd} onChange={handleSelectChange} aria-label="bwd" >
                         <option value=''  ><p class={'pp'}> ရွေးချယ်ပါ </p></option>
                         <option value='0'  >စနေ</option>
                         <option value='1'  >တနင်္ဂနွေ </option>
