@@ -14,7 +14,7 @@
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.10.1",
-		"vite": "^6.3.5",
+		"vite": "^6.3.6",
 		"vite-plugin-pages": "^0.33.0",
 		"vite-plugin-pages-sitemap": "^1.6.1"
 	}
