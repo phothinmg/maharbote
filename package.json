@@ -1,6 +1,5 @@
 {
 	"name": "maharbote",
-	"private": true,
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -8,14 +7,14 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"preact": "^10.13.1",
-		"preact-iso": "^2.3.1",
-		"preact-render-to-string": "^6.2.1"
+		"preact": "^10.27.2",
+		"preact-iso": "^2.10.0",
+		"preact-render-to-string": "^6.6.1"
 	},
 	"devDependencies": {
-		"@preact/preset-vite": "^2.10.1",
+		"@preact/preset-vite": "^2.10.2",
 		"vite": "^6.3.6",
-		"vite-plugin-pages": "^0.33.0",
-		"vite-plugin-pages-sitemap": "^1.6.1"
+		"vite-plugin-pages": "^0.33.1",
+		"vite-plugin-pages-sitemap": "^1.7.1"
 	}
 }
