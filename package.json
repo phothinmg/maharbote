@@ -7,13 +7,13 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"preact": "^10.27.2",
+		"preact": "^10.29.1",
 		"preact-iso": "^2.10.0",
 		"preact-render-to-string": "^6.6.1"
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.10.2",
-		"vite": "^6.4.1",
+		"vite": "^6.4.2",
 		"vite-plugin-pages": "^0.33.1",
 		"vite-plugin-pages-sitemap": "^1.7.1"
 	}
